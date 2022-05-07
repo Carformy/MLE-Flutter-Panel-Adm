@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-uber-taxi": {
+      "hosting": {
+        "superAdmin": [
+          "my-uber-taxi"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-uber-taxi"
+  }
+}

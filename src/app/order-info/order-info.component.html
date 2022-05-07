@@ -1,0 +1,117 @@
+
+<mat-toolbar>    <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
+    <mat-chip style="background-color: rgb(102, 200, 200);">
+        <span style ="color:white; justify-content: left;font-size: 25px;">Super-Admin </span>
+    </mat-chip>
+  </mat-chip-list>
+      <span class="example-spacer"></span> 
+      <a  (click)="goToHome()">Home</a>
+     <a  (click)="goToDrivers()">Drivers</a>
+      <a (click)="goToPassengers()">Passengers</a>
+      <a (click)="goToOrders()">Orders</a> 
+      <a (click)="goToMaps()">Maps</a> 
+      <span class="example-spacer"></span> 
+      <span class="example-spacer"></span> 
+      <span class="example-spacer"></span> 
+      <span class="example-spacer"></span> 
+      <span class="example-spacer"></span> 
+      <span class="example-spacer"></span> 
+      <span class="example-spacer"></span> 
+      <span class="example-spacer"></span> 
+      <span class="example-spacer"></span> 
+      <span class="example-spacer"></span> 
+      <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
+        <mat-chip style="background-color: rgb(102, 200, 200);">
+          <a (click)="logout()" style="color:white;">Log out</a>
+        </mat-chip>
+      </mat-chip-list></mat-toolbar>
+      <div class="background" >
+
+        <h1>Driver & Passenger Information</h1>
+
+        
+      </div>
+
+      <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{(orderInfo)?.driverName}}</mat-card-title>
+          <mat-card-subtitle>{{(orderInfo)?.carBrand}} {{(orderInfo)?.carModel}} {{(orderInfo)?.carNumber}} {{(orderInfo)?.carType}}</mat-card-subtitle>
+          <img mat-card-sm-image src="{{(orderInfo)?.driverPhoto}}" >
+        </mat-card-title-group>
+        <mat-card-content>
+          Phone : {{(orderInfo)?.driverPhone}}
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{(orderInfo)?.userName}}</mat-card-title>
+          <mat-card-subtitle>Uber Taxi Passenger Application</mat-card-subtitle>
+          <img mat-card-sm-image src="{{(orderInfo)?.userPhoto}}" >
+        </mat-card-title-group>
+        <mat-card-content>
+          Phone : {{(orderInfo)?.userPhone}}
+        </mat-card-content>
+      </mat-card>
+
+
+      <div class="background" >
+
+        <h1>Order Information</h1>
+      
+ <table mat-table [dataSource]="orders2[0]" class="mat-elevation-z8" *ngIf="orders2[0]">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight" >
+    <th mat-header-cell *matHeaderCellDef> Start Address</th>
+    <td mat-cell *matCellDef="let element"> {{element.originAddress}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef> End Address</th>
+    <td mat-cell *matCellDef="let element"> {{element.destinationAddress}} </td>
+  </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="carBrand">
+        <th mat-header-cell *matHeaderCellDef> Car Brand </th>
+        <td mat-cell *matCellDef="let element"> {{element.carBrand}} </td>
+      </ng-container>
+
+        <!-- Symbol Column -->
+  <ng-container matColumnDef="carModel">
+    <th mat-header-cell *matHeaderCellDef> Car Model </th>
+    <td mat-cell *matCellDef="let element"> {{element.carModel}} </td>
+  </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="carNumber">
+        <th mat-header-cell *matHeaderCellDef> Car Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.carNumber}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="carType">
+        <th mat-header-cell *matHeaderCellDef> Total </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalPayment}}$ </td>
+      </ng-container>
+
+      orderInfo
+
+      <!-- <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element"> <button mat-raised-button style="background-color:#32b5c1;color:white" (click)="goToOrderInfo(element.timestamp)">More Info</button>
+          <button mat-raised-button style="background-color:#c13247;color:white">Delete</button></td>
+      </ng-container> -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+</div>
