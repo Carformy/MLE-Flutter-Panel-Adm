@@ -21,4 +21,7 @@ APP CONDUCTOR: Recibe la confirmacion del viaje
 
 final de la moficacion, sigue todo funcionando normalmente.
 
+# POS DATA.
+ La app de indriver, ofrece que el cliente escriba el valor que quiere pagar por el viaje. aqui no queremos darle esa opcion al cliente, solo recibe presupuestos.
+ 
 Cualquier duda a su Disposicion: Wp +5491153187633  mail: Gustavo@oha.com.ar
